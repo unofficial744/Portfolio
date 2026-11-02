@@ -134,6 +134,53 @@
         </div>
     </section>
 
+    <section class="section skills" id="skills">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Skills
+            </h2>
+
+            <p class="section-subtitle">
+                The languages, frameworks and tools I use to build projects.
+            </p>
+
+
+            <div class="skills-grid">
+
+                <!-- Outer loop: one box per category (Frontend, Backend, Tools) -->
+                <div
+                    class="skill-group"
+                    th:each="group : ${skillsByCategory}"
+                >
+
+                    <h3 th:text="${group.key}">
+                        Category
+                    </h3>
+
+
+                    <div class="skill-list">
+
+                        <!-- Inner loop: one chip per skill in that category -->
+                        <span
+                            class="skill-chip"
+                            th:each="skill : ${group.value}"
+                            th:text="${skill.name}"
+                        >
+                            Skill
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- Script to open and close the menu on phones -->
     <script th:src="@{/js/menu.js}"></script>
 
